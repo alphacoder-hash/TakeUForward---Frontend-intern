@@ -1,0 +1,92 @@
+.keeper-container {
+  width: 180px;
+  height: 350px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+  margin-left: -20px; /* Pull closer to the calendar on the left (since it's after the frame) */
+  transition: transform 0.3s ease;
+  animation: keeper-entrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.keeper-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: auto;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+  animation: keeper-float 4s ease-in-out infinite;
+  transform: scaleX(-1); /* Face the calendar */
+}
+
+.keeper-arm {
+  transform-origin: 50px 80px;
+}
+
+.keeper-bubble {
+  position: absolute;
+  bottom: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 10px 15px;
+  border-radius: 15px 15px 15px 0;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-primary);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 120;
+}
+
+.keeper-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Float Animation */
+@keyframes keeper-float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes keeper-entrance {
+  from { opacity: 0; transform: translateY(100px) scale(0.5); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Specific positioning for different screen sizes */
+
+/* Desktop - Sitting on the right side of the calendar */
+@media (min-width: 1100px) {
+  .keeper-container {
+    width: 220px;
+    height: 400px;
+    margin-top: 150px; /* Sit lower relative to the center alignment */
+  }
+}
+
+/* Mobile/Tablet - Under the calendar */
+@media (max-width: 1099px) {
+  .keeper-container {
+    margin-left: 0;
+    width: 150px;
+    height: 250px;
+  }
+
+  .keeper-bubble {
+    font-size: 0.75rem;
+  }
+}

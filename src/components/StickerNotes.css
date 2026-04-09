@@ -1,0 +1,89 @@
+.notes-wrapper-wall {
+  margin-top: auto;
+  padding-top: 30px;
+}
+
+.sticker-note-container {
+  position: relative;
+  width: 100%;
+  background-color: #fffdec; /* Classic post-it yellow */
+  padding: 24px;
+  box-shadow: 
+    3px 3px 10px rgba(0,0,0,0.05),
+    0 20px 25px -5px rgba(0,0,0,0.1);
+  transform: rotate(1deg);
+  transition: transform 0.3s ease;
+  border-bottom-right-radius: 40px 5px; /* Subtle paper curl */
+}
+
+.sticker-note-container:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.washi-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 110px;
+  height: 28px;
+  background-color: var(--accent-color);
+  opacity: 0.3;
+  backdrop-filter: blur(1px);
+  z-index: 2;
+  border-left: 2px solid rgba(0,0,0,0.05);
+  border-right: 2px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  /* Jagged tear look */
+  clip-path: polygon(
+    0% 0%, 5% 5%, 0% 10%, 5% 15%, 0% 20%, 5% 25%, 0% 30%, 5% 35%, 0% 40%, 5% 45%, 0% 50%, 5% 55%, 0% 60%, 5% 65%, 0% 70%, 5% 75%, 0% 80%, 5% 85%, 0% 90%, 5% 95%, 0% 100%,
+    100% 100%, 95% 95%, 100% 90%, 95% 85%, 100% 80%, 95% 75%, 100% 70%, 95% 65%, 100% 60%, 95% 55%, 100% 50%, 95% 45%, 100% 40%, 95% 35%, 100% 30%, 95% 25%, 100% 20%, 95% 15%, 100% 10%, 95% 5%, 100% 0%
+  );
+}
+
+.sticker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+  padding-bottom: 8px;
+}
+
+.sticker-date {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-secondary);
+}
+
+.sticker-icon {
+  color: var(--accent-color);
+  opacity: 0.5;
+}
+
+.sticker-input {
+  width: 100%;
+  min-height: 120px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  resize: none;
+  color: #3d3b2b;
+  outline: none;
+}
+
+.sticker-input::placeholder {
+  font-style: italic;
+  opacity: 0.3;
+}
+
+@media (max-width: 1024px) {
+  .notes-wrapper-wall {
+    padding-top: 10px;
+  }
+}

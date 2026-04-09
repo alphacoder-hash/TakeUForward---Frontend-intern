@@ -1,0 +1,228 @@
+.calendar-grid-container {
+  width: 100%;
+}
+
+.weekdays-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 25px;
+}
+
+.weekday-label {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+}
+
+.grid-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-left: 1px solid rgba(0,0,0,0.08);
+  background: transparent;
+}
+
+.day-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border-right: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: background-color 0.3s ease;
+}
+
+.day-cell:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.day-number {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  z-index: 2;
+  color: var(--ink-primary);
+}
+
+.other-month {
+  background-color: transparent;
+  opacity: 0.4;
+}
+
+.other-month .day-number {
+  color: var(--ink-secondary);
+}
+
+/* Ink Highlight / Range States */
+.in-range {
+  background-color: var(--range-bg);
+}
+
+/* Range bridge: making it look like a real marker stroke */
+.range-bridge {
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  right: -2px;
+  height: 24px;
+  transform: translateY(-50%) rotate(-0.5deg);
+  background-color: var(--range-bg);
+  z-index: 1;
+  opacity: 0.6;
+  border-radius: 4px;
+  /* Add a subtle rough edge */
+  mask-image: linear-gradient(to right, black 95%, transparent 100%);
+}
+
+.range-start .range-bridge {
+  left: 50%;
+  border-radius: 12px 0 0 12px;
+}
+
+.range-end .range-bridge {
+  right: 50%;
+  border-radius: 0 12px 12px 0;
+}
+
+.note-indicator-dot {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 5px;
+  height: 5px;
+  background-color: #6a8c7d;
+  border-radius: 50%;
+  opacity: 0.6;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+.holiday-marker-icon {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  filter: sepia(1) saturate(2);
+  transform: rotate(5deg);
+}
+
+.day-number.today {
+  color: var(--accent-color);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* The "Ink Blot" Circle for specific selection */
+.marker-container {
+  position: absolute;
+  inset: 5px;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.range-start .day-number,
+.range-end .day-number {
+  color: white;
+}
+
+.range-start::after,
+.range-end::after {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: var(--range-ink);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.today-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.weather-stamp {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.task-pin {
+  position: absolute;
+  top: -8px;
+  left: 5px;
+  font-size: 0.65rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  pointer-events: none;
+  z-index: 20;
+  white-space: nowrap;
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+.doodle-canvas {
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.doodle-canvas.active {
+  opacity: 1;
+}
+
+.magnifying-reticle {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1.5px) contrast(1.15) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1), inset 0 0 20px rgba(255,255,255,0.4);
+  transform: translate(-50%, -50%);
+  z-index: 40;
+}
+
+@media (max-width: 600px) {
+  .day-number {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .day-number {
+    font-size: 0.8rem;
+  }
+  .weekday-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+  .task-pin {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+}

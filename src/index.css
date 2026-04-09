@@ -1,0 +1,73 @@
+:root {
+  /* Premium Artisan Palette */
+  --bg-color: #fcfaf7; /* Warm paper tone */
+  --paper-color: #ffffff;
+  --ink-primary: #1c1c1c;
+  --ink-secondary: #636363;
+  --accent-color: #4a6670; /* Muted Slate Blue */
+  --accent-light: #e8ecee;
+  --range-bg: rgba(74, 102, 112, 0.12);
+  --range-ink: #4a6670;
+  
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Outfit', 'Ibarra Real Nova', serif;
+  
+  /* Effects */
+  --paper-shadow: 0 10px 40px -10px rgba(0,0,0,0.12), 0 0 1px rgba(0,0,0,0.05);
+  --ink-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  --transition-gentle: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Authentic Paper Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  z-index: 1000;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+
+h1, h2, .month-display {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition-gentle);
+}
+
+textarea {
+  font-family: inherit;
+}
