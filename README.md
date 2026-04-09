@@ -1,4 +1,4 @@
-# 🖋️ Artisan Press: Interactive Wall Calendar
+# Artisan Press: Interactive Wall Calendar
 
 [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
@@ -8,19 +8,19 @@
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 📅 The Physical Experience
+### The Physical Experience
 - **3D Page Flips**: Real-life physics simulation for month transitions, including curved paper distortion and "heavy paper" easing.
 - **Tactile Binder**: A metallic spiral binder system and hanging wire setup that grounds the UI in a physical space.
 - **Parallax Depth**: The entire calendar responds to mouse movement, shifting perspective like a physical object hanging on a wall.
 
-### 🎭 Ambient & Seasonality
+### Ambient & Seasonality
 - **Seasonal Particle Engine**: Dynamic environment effects (Snow, Petals, Autumn Leaves) that react to the current month's theme.
 - **Studio Lighting (Lamp Mode)**: Toggleable warm "Studio Lighting" with bloom effects and paper-grain textures for late-night planning.
 - **Localized Typography**: Automatic font swapping and date formatting for English, 日本語 (Japanese), and Français (French).
 
-### 🎨 Creativity & Utility
+### Creativity & Utility
 - **Calendar Keeper**: Meet your interactive mascot! The Keeper "leans in" to help you flip pages and responds to your clicks with seasonal messages.
 - **Canvas Doodling**: Enter Draw Mode to freehand doodle directly onto the calendar grid, simulating a real felt-tip marker.
 - **Draggable Task Pins**: Drag custom task pills from your ledger onto the grid to "pin" your priorities.
@@ -29,7 +29,7 @@
 
 ---
 
-## 🛠 Architectural Choices
+## Architectural Choices
 
 1. **Vanilla CSS + Modern Tokens**: 
    - No heavy CSS frameworks. The project uses fine-tuned CSS variables for "Seasonal Themes," ensuring the UI feels hand-crafted and unique for every month.
@@ -44,7 +44,7 @@
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 To run this masterpiece locally, follow these steps:
 
@@ -72,11 +72,11 @@ npm run build
 
 ---
 
-## 📐 Responsive Strategy
+## Responsive Strategy
 
 - **Desktop (1100px+)**: A grand side-by-side "Studio Layout" that emphasizes whitespace and luxury positioning.
 - **Tablet/Mobile**: A smart stacking behavior that preserves the "Wall Frame" aesthetic while optimizing the grid for touch interaction.
 
 ---
 
-Built with 🎨 and ☕ for the ultimate planning experience.
+Built with care for the ultimate planning experience.
